@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface WeatherStationService {
 
-	List<WeatherStationProbeEntity> findAll();
-
 	WeatherStationProbeEntity getLast();
 
 	List<DataDto> getDataForParam(String parameter, Integer size);

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/weather/")
-public class    WeatherStationController {
+public class WeatherStationController {
 
     @Autowired
     WeatherStationService service;
@@ -18,11 +18,6 @@ public class    WeatherStationController {
     @RequestMapping(method = RequestMethod.GET, value = "/last")
     public WeatherStationProbeEntity last() {
         return service.getLast();
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public List<WeatherStationProbeEntity> findAll() {
-        return service.findAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/filter/{param}/{size}")
