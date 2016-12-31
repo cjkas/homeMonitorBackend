@@ -29,6 +29,7 @@ public class HmApplication extends SpringBootServletInitializer {
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
 		config.addAllowedOrigin("http://localhost:8000");
+		config.addAllowedOrigin("http://192.168.0.33");
 		config.addAllowedHeader("*");
 		config.addAllowedMethod("*");
 		source.registerCorsConfiguration("/**", config);
