@@ -18,10 +18,20 @@ public class UserController {
         return userService.findAll();
     }
 
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
-    public UserEntity update(@PathVariable("id") Long id, @RequestBody UserEntity inUser) {
-        UserEntity user = userService.update(id, inUser);
+    @RequestMapping(value = "/user/", method = RequestMethod.PUT)
+    public UserEntity update(@RequestBody UserEntity inUser) {
+        UserEntity user = userService.update(inUser);
         return user;
+    }
+
+    @RequestMapping(value = "/user/", method = RequestMethod.POST)
+    public void create(@RequestBody UserEntity inUser) {
+        userService.create(inUser);
+    }
+
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable(name = "id") Long id) {
+        userService.delete(id);
     }
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)

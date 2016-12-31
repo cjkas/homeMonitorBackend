@@ -30,12 +30,10 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserEntity addUser(UserEntity entity) {
-        log.info("addUser, {}", ReflectionToStringBuilder.toString(entity));
-        entity.setRole(UserEntity.Role.ADMIN);
+    public void create(UserEntity entity) {
+        log.info("create, {}", ReflectionToStringBuilder.toString(entity));
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));
         userRepository.save(entity);
-        return entity;
     }
 
     @Override
@@ -51,12 +49,11 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserEntity update(Long id, UserEntity entity) {
-        boolean exists = userRepository.exists(id);
+    public UserEntity update(UserEntity entity) {
+        boolean exists = userRepository.exists(entity.getId());
         if (!exists) {
             return null;
         }
-        entity.setId(id);
         userRepository.save(entity);
         return entity;
     }
@@ -64,6 +61,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity findByLogin(String login) {
         return userRepository.findByLogin(login);
+    }
+
+    @Transactional
+    @Override
+    public void delete(Long id) {
+        boolean exists = userRepository.exists(id);
+        userRepository.delete(id);
     }
 
 }
