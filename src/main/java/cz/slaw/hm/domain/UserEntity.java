@@ -3,6 +3,8 @@ package cz.slaw.hm.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
+@Indexed
 @Table(indexes = {
         @Index(name = "idx_user_entity_login", unique = true, columnList = "login")
 })
@@ -23,6 +26,7 @@ public class UserEntity implements Serializable {
     @Setter
     private Long id;
 
+    @Field
     @NotNull
     @Size(max = 50)
     @Column(length = 50)
@@ -47,6 +51,7 @@ public class UserEntity implements Serializable {
         ADMIN, USER;
     }
 
+    @Field
     @NotNull
     @Column
     @Enumerated(EnumType.STRING)
