@@ -30,6 +30,8 @@ public class HmApplication extends SpringBootServletInitializer {
 		config.setAllowCredentials(true);
 		config.addAllowedOrigin("http://localhost:8000");
 		config.addAllowedOrigin("http://192.168.0.33");
+		config.addAllowedOrigin("https://sczaja.synology.me");
+		config.addAllowedOrigin("https://hmb.sczaja.synology.me");
 		config.addAllowedHeader("*");
 		config.addAllowedMethod("*");
 		source.registerCorsConfiguration("/**", config);

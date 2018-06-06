@@ -38,6 +38,8 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
     compile('io.jsonwebtoken:jjwt:0.4')
+    compile("org.hibernate:hibernate-java8")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
     runtime('org.mariadb.jdbc:mariadb-java-client:1.5.5')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile("org.springframework.security:spring-security-test")

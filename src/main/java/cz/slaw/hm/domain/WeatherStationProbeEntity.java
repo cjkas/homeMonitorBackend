@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -49,10 +50,9 @@ public class WeatherStationProbeEntity implements Serializable {
 	@Setter
 	private Float batteryVoltage;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Getter
 	@Setter
-	private Date created;
+	private LocalDateTime created;
 	
 
 }
